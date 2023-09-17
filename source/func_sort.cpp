@@ -53,7 +53,7 @@ int compare_str_len_arr(len_arr * str1, len_arr * str2)
 len_arr *sort_bubble(len_arr *arr_ptr, int (*f_sort) (len_arr *, len_arr *))
 {
 
-    for (int i = 0; i < (arr_ptr->size_arr); i++)
+    for  (int i = 0; i < (arr_ptr->size_arr); i++)
     {
         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(may->arr));
