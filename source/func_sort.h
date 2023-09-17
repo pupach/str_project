@@ -1,0 +1,15 @@
+#ifndef FUNC_SORT
+#define FUNC_SORT
+
+#include <TXLib.h>
+#include <stdio.h>
+#include <math.h>
+#include<stdlib.h>
+#include <string.h>
+#include <assert.h>
+
+int compare_str_len_arr(len_arr *str_1, len_arr *str_2);
+
+len_arr *sort_bubble(len_arr *arr_from_sort, int (*f_sort) (len_arr *, len_arr*));
+
+#endif

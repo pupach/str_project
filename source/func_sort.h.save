@@ -1,0 +1,15 @@
+#ifndef STR_FUNC
+#define STR_FUNC 
+
+#include <TXLib.h>
+#include <stdio.h>
+#include <math.h>
+#include<stdlib.h>
+#include <string.h>
+#include <assert.h>
+
+int compare_str(char * str_1, char * str_2)
+
+char *sort_bubble(char **arr_from_sort, size_t size_arr, int (*f_sort) (char *, char *))
+
+ #endif
