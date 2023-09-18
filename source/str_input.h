@@ -24,9 +24,6 @@ struct len_arr
     void *arr;
     int size_arr = -1;
 
-
-
-
 };
 
 
