@@ -52,22 +52,11 @@ int compare_str_len_arr(len_arr * str1, len_arr * str2)
 
 len_arr *sort_bubble(len_arr *arr_ptr, int (*f_sort) (len_arr *, len_arr *))
 {
-
-    for  (int i = 0; i < (arr_ptr->size_arr); i++)
-    {
-        len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
-        LOG("sort_bubble 1 %d, str %s\n", i, (char *)(may->arr));
-    }
-
     LOG("size %d", arr_ptr->size_arr);
 
     len_arr *arr_to_sort = (len_arr *)calloc(arr_ptr->size_arr, sizeof(len_arr *));
-    for (int i = 0; i < (arr_to_sort->size_arr); i++)
-    {
-        len_arr *may = ((len_arr *)(arr_to_sort) + i);
-        LOG("sort_bubble 2 number %d, str %s\n", i, (char *)(may->arr));
-    }
-    memcpy(arr_to_sort, (len_arr *)(arr_ptr->arr), sizeof(len_arr *)*(arr_ptr->size_arr));// why 2 ???????
+
+    memcpy(arr_to_sort, (len_arr *)(arr_ptr->arr), sizeof(len_arr *)*(arr_ptr->size_arr)*2);// why 2 ???????
 
 
     for (int i = 0; i < ( arr_ptr->size_arr); i++)
