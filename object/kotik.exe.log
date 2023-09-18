@@ -7128,3 +7128,837 @@ Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
 Directory:	C:\pupach_MFTI\pupach_atom\str_project
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x763EE6DE в функции ungetwc(). Попытка прочесть данные по адресу 0xBB37530B в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x46A4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x763EE6DE in C:\Windows\System32\msvcrt.dll: ungetwc()
+# 1 0x763E6800 in C:\Windows\System32\msvcrt.dll: fprintf()
+
+# 2 0x004AFF76 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (75):
+
+     73:     {
+     74:         len_arr *may = ((len_arr *)(arr_to_sort) + i);
+=>   75:         LOG("sort_bubble 3 number %d, str %s\n", i, (char *)(may->arr));
+     76:     }
+     77: 
+
+# 3 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:33:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:33:21
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x763EE6DE в функции ungetwc(). Попытка прочесть данные по адресу 0xBB37530B в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x46A4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x763EE6DE in C:\Windows\System32\msvcrt.dll: ungetwc()
+# 1 0x763E6800 in C:\Windows\System32\msvcrt.dll: fprintf()
+
+# 2 0x004AFF76 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (75):
+
+     73:     {
+     74:         len_arr *may = ((len_arr *)(arr_to_sort) + i);
+=>   75:         LOG("sort_bubble 3 number %d, str %s\n", i, (char *)(may->arr));
+     76:     }
+     77: 
+
+# 3 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:33:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:33:21
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFE5D в функции sort_bubble() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 59. Попытка прочесть данные по адресу 0x0000003A в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x6DD8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFE5D in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (59):
+
+     57:     {
+     58:         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+=>   59:         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(may->arr));
+     60:     }
+     61: 
+
+# 1 0x00484056 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:33:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:39:25
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFE5D в функции sort_bubble() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 59. Попытка прочесть данные по адресу 0x0000003A в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x6DD8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFE5D in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (59):
+
+     57:     {
+     58:         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+=>   59:         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(may->arr));
+     60:     }
+     61: 
+
+# 1 0x00484056 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:33:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:39:25
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x763EE6DE в функции ungetwc(). Попытка прочесть данные по адресу 0x00003F24 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x7680 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x763EE6DE in C:\Windows\System32\msvcrt.dll: ungetwc()
+# 1 0x763E6800 in C:\Windows\System32\msvcrt.dll: fprintf()
+
+# 2 0x004AFF85 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (76):
+
+     74:     {
+     75:         len_arr *may = ((len_arr *)(arr_to_sort) + i);
+=>   76:         LOG("sort_bubble 3 number %d, str %s\n", i, (char *)(may->arr));
+     77:     }
+     78: 
+
+# 3 0x00484056 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:45:56, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:45:58
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x763EE6DE в функции ungetwc(). Попытка прочесть данные по адресу 0x00003F24 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x7680 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x763EE6DE in C:\Windows\System32\msvcrt.dll: ungetwc()
+# 1 0x763E6800 in C:\Windows\System32\msvcrt.dll: fprintf()
+
+# 2 0x004AFF85 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (76):
+
+     74:     {
+     75:         len_arr *may = ((len_arr *)(arr_to_sort) + i);
+=>   76:         LOG("sort_bubble 3 number %d, str %s\n", i, (char *)(may->arr));
+     77:     }
+     78: 
+
+# 3 0x00484056 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:45:56, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:45:58
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFE58 в функции sort_bubble() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 59. Попытка прочесть данные по адресу 0x0000003E в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x6E38 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFE58 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (59):
+
+     57:     {
+     58:         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+=>   59:         void *s = may->arr;
+     60:         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(s));
+     61:     }
+
+# 1 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:45:56, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:46:30
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFE58 в функции sort_bubble() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 59. Попытка прочесть данные по адресу 0x0000003E в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x6E38 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFE58 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (59):
+
+     57:     {
+     58:         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+=>   59:         void *s = may->arr;
+     60:         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(s));
+     61:     }
+
+# 1 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:45:56, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:46:30
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFE58 в функции sort_bubble() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 59. Попытка прочесть данные по адресу 0x0000003E в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x5618 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFE58 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (59):
+
+     57:     {
+     58:         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+=>   59:         void *s = may->arr;
+     60:         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(s));
+     61:     }
+
+# 1 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:45:56, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:46:52
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFE58 в функции sort_bubble() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 59. Попытка прочесть данные по адресу 0x0000003E в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x5618 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFE58 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (59):
+
+     57:     {
+     58:         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+=>   59:         void *s = may->arr;
+     60:         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(s));
+     61:     }
+
+# 1 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:45:56, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 01:46:52
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFE58 в функции sort_bubble() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 59. Попытка прочесть данные по адресу 0x0000003E в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x1858 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFE58 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (59):
+
+     57:     {
+     58:         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+=>   59:         void *s = may->arr;
+     60:         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(s));
+     61:     }
+
+# 1 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:45:56, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 14:38:19
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFE58 в функции sort_bubble() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 59. Попытка прочесть данные по адресу 0x0000003E в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x1858 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFE58 in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (59):
+
+     57:     {
+     58:         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+=>   59:         void *s = may->arr;
+     60:         LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(s));
+     61:     }
+
+# 1 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 01:45:56, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 14:38:19
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFDCB в функции compare_str_len_arr() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 19. Попытка прочесть данные по адресу 0xA33E2052 в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x4B04 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFDCB in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: compare_str_len_arr() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (19):
+
+     17:     LOG("compare_str2 %c\n", str_2);
+     18: 
+=>   19:     while(((*(str_1 + index_1) != '\0') and (*(str_2 + index_2)) != '\0')
+     20:             and res_comp == 0)
+     21:     {
+
+# 1 0x004B001C in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (90):
+
+     88:             LOG("str1-%d, str2-%d", i, arr_ptr->size_arr);
+     89: 
+=>   90:             int res = f_sort((len_arr *)(arr_to_sort)  + i, (len_arr *)(arr_to_sort)  + i+1);
+     91:             if (res == -1)
+     92:             {
+
+# 2 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 14:41:58, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 14:42:01
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004AFDCB в функции compare_str_len_arr() в файле C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp на строке 19. Попытка прочесть данные по адресу 0xA33E2052 в модуле C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0x4B04 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004AFDCB in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: compare_str_len_arr() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (19):
+
+     17:     LOG("compare_str2 %c\n", str_2);
+     18: 
+=>   19:     while(((*(str_1 + index_1) != '\0') and (*(str_2 + index_2)) != '\0')
+     20:             and res_comp == 0)
+     21:     {
+
+# 1 0x004B001C in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (90):
+
+     88:             LOG("str1-%d, str2-%d", i, arr_ptr->size_arr);
+     89: 
+=>   90:             int res = f_sort((len_arr *)(arr_to_sort)  + i, (len_arr *)(arr_to_sort)  + i+1);
+     91:             if (res == -1)
+     92:             {
+
+# 2 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 14:41:58, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 14:42:01
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7743E6DE в функции ungetwc(). Попытка прочесть данные по адресу 0x803C1763 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0xB08 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7743E6DE in C:\Windows\System32\msvcrt.dll: ungetwc()
+# 1 0x77436800 in C:\Windows\System32\msvcrt.dll: fprintf()
+
+# 2 0x004AFD1D in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: compare_str_len_arr() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (17):
+
+     15: 
+     16:     LOG("compare_str1 %s\n", str_1);
+=>   17:     LOG("compare_str2 %s\n", str_2);
+     18: 
+     19:     while(((*(str_1 + index_1) != '\0') and (*(str_2 + index_2)) != '\0')
+
+# 3 0x004B001C in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (90):
+
+     88:             LOG("str1-%d, str2-%d", i, arr_ptr->size_arr);
+     89: 
+=>   90:             int res = f_sort((len_arr *)(arr_to_sort)  + i, (len_arr *)(arr_to_sort)  + i+1);
+     91:             if (res == -1)
+     92:             {
+
+# 4 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 14:42:39, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 14:42:42
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7743E6DE в функции ungetwc(). Попытка прочесть данные по адресу 0x803C1763 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0065ADDC (32-bit), Flags: Cmdre0, Thread: 0xB08 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7743E6DE in C:\Windows\System32\msvcrt.dll: ungetwc()
+# 1 0x77436800 in C:\Windows\System32\msvcrt.dll: fprintf()
+
+# 2 0x004AFD1D in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: compare_str_len_arr() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (17):
+
+     15: 
+     16:     LOG("compare_str1 %s\n", str_1);
+=>   17:     LOG("compare_str2 %s\n", str_2);
+     18: 
+     19:     while(((*(str_1 + index_1) != '\0') and (*(str_2 + index_2)) != '\0')
+
+# 3 0x004B001C in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: sort_bubble() at C:/pupach_MFTI/pupach_atom/str_project/source/func_sort.cpp (90):
+
+     88:             LOG("str1-%d, str2-%d", i, arr_ptr->size_arr);
+     89: 
+=>   90:             int res = f_sort((len_arr *)(arr_to_sort)  + i, (len_arr *)(arr_to_sort)  + i+1);
+     91:             if (res == -1)
+     92:             {
+
+# 4 0x0048404F in C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe: main() at C:/pupach_MFTI/pupach_atom/str_project/source/onegin.cpp (33):
+
+     31:         LOG("number %d, str %s\n", i, (char *)(may->arr));
+     32:     }
+=>   33:     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
+     34: 
+     35:     for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 14:42:39, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 14:42:42
+
+Run file:	C:\pupach_MFTI\pupach_atom\str_project\object\kotik.exe
+Directory:	C:\pupach_MFTI\pupach_atom\str_project
+
+--------------------------------------------------

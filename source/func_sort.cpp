@@ -14,7 +14,7 @@ int compare_str_len_arr(len_arr * str1, len_arr * str2)
     char *str_2 = (char *)(str2->arr);
 
     LOG("compare_str1 %s\n", str_1);
-    LOG("compare_str2 %c\n", str_2);
+    LOG("compare_str2 %s\n", str_2);
 
     while(((*(str_1 + index_1) != '\0') and (*(str_2 + index_2)) != '\0')
             and res_comp == 0)
@@ -56,7 +56,7 @@ len_arr *sort_bubble(len_arr *arr_ptr, int (*f_sort) (len_arr *, len_arr *))
     for  (int i = 0; i < (arr_ptr->size_arr); i++)
     {
         len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
-        LOG("sort_bubble 1 number %d, str %s\n", i, (char *)(may->arr));
+        LOG("sort_bubble 1 %d, str %s\n", i, (char *)(may->arr));
     }
 
     LOG("size %d", arr_ptr->size_arr);
@@ -64,18 +64,17 @@ len_arr *sort_bubble(len_arr *arr_ptr, int (*f_sort) (len_arr *, len_arr *))
     len_arr *arr_to_sort = (len_arr *)calloc(arr_ptr->size_arr, sizeof(len_arr *));
     for (int i = 0; i < (arr_ptr->size_arr); i++)
     {
-        LOG("sort_bubble 2 number %d, str %s\n", i, (char *)(arr_to_sort+i));
+        len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
+        LOG("sort_bubble 2 number %d, str %s\n", i, (char *)(may->arr));
     }
     memcpy(arr_to_sort, (len_arr *)(arr_ptr->arr), sizeof(len_arr *)*(arr_ptr->size_arr)*1);// why 2 ???????
 
 
     for (int i = 0; i < (arr_ptr->size_arr); i++)
     {
-        len_arr *may = ((len_arr *)(arr_to_sort) + i);
+        len_arr *may = ((len_arr *)(arr_ptr->arr) + i);
         LOG("sort_bubble 3 number %d, str %s\n", i, (char *)(may->arr));
     }
-
-    exit(1);
 
     bool flag_is_sorted = false;
 

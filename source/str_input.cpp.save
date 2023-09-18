@@ -117,7 +117,7 @@ len_arr *find_all_str(len_arr *buffer)
         counter++;
     }while(amount_characters < buffer->size_arr);
 
-    len_arr *all_ptr_str = (len_arr *)calloc(sizeof(struct len_arr) , 1);
+    len_arr *all_ptr_str = (len_arr *)calloc(sizeof(len_arr), 1);
     all_ptr_str->size_arr = counter;
     all_ptr_str->arr = (void *)arr_str;
 
