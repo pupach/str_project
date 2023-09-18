@@ -28,12 +28,13 @@ int compare_str_len_arr(len_arr * str1, len_arr * str2)
     char *str_1 = (char *)(str1->arr);
     char *str_2 = (char *)(str2->arr);
 
-    LOG("compare_str1 %s\n", str_1);
-    LOG("compare_str2 %s\n", str_2);
+//    LOG("compare_str1 %s\n", str_1);
+//    LOG("compare_str2 %s\n", str_2);
 
-    while((index_1 != -1) and (index_2 != -1)
+    while((index_1 != str1->size_arr) and (index_2 != str2->size_arr)
             and res_comp == 0)
     {
+//        LOG("while begin");
         if (!is_letter_rus(*(str_1 + index_1)))
         {
             index_1 += delta_index;
@@ -52,13 +53,14 @@ int compare_str_len_arr(len_arr * str1, len_arr * str2)
 
         index_1 += delta_index;
         index_2 += delta_index;
+//        LOG("while end");
     }
 
     if (res_comp == 0)
     {
-        if ((*(str_1 + index_1) != '\0') and (*(str_2 + index_2) == '\0')) res_comp = -1;
+        if ((index_1 != str1->size_arr) and (index_2 == str2->size_arr)) res_comp = -1;
 
-        else if ((*(str_1 + index_1) == '\0') and (*(str_2 + index_2) != '\0')) res_comp = 1;
+        else if ((index_1 == str1->size_arr) and (index_2 != str2->size_arr)) res_comp = 1;
 
     }
     return res_comp;

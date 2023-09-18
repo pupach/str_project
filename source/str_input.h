@@ -43,7 +43,7 @@ len_arr *find_one_str(len_arr *buff, int *amount_characters);
 
 CODE_ERRORS free_all_dinamic_ptr(char *text[], const int size_arr);
 
-FILE *open_file(char *text="_");
+FILE *open_file(char *text="_", char *mode="r");
 
 len_arr *read_from_file_to_buff(FILE *stream_read);
 

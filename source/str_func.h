@@ -8,7 +8,7 @@
 #include<stdlib.h>
 #include <string.h>
 #include <assert.h>
-const int DEBUG_MODE = 0;
+const int DEBUG_MODE = 1;
 
 #define LOG(args...)                                                            \
     do                                                                                      \

@@ -1,6 +1,6 @@
 #include "str_input.h"
-#include "str_func.h
-    
+#include "str_func.h"
+
 
 FILE *stream_out = stdin;
 
@@ -112,7 +112,7 @@ len_arr *find_all_str(len_arr *buffer)
             size_arr += EXTRA_SIZE;
             arr_str = (len_arr *)increase_size_array((void *)arr_str, size_arr);
         }
-        (arr_str + counter) = s;
+        *(arr_str + counter) = *s;
         counter++;
 
     }while(amount_characters < buffer->size_arr);
@@ -125,7 +125,7 @@ len_arr *find_all_str(len_arr *buffer)
 }
 
 
-FILE *open_file(char *text)
+FILE *open_file(char *text, char mode='r')
 {
     char file_name[MAX_SIZE_FILE] = {};
     if (text[0]=='_')
@@ -147,14 +147,17 @@ FILE *open_file(char *text)
     else
     {
         printf("Некоректный ввод");
-        return open_file();
+        char *text_default = "_";
+        return open_file(text_default, mode);
     }
-    FILE *stream_read = fopen(file_name, "r");
+    if mode != 'w' and 
+    FILE *stream_read = fopen(file_name, mode);
 
     if (stream_read == NULL)
     {
         printf("Некоректный ввод");
-        return open_file();
+        char *text_default = "_";
+        return open_file(text_default, mode);
     }
     return stream_read;
 }

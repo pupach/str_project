@@ -125,7 +125,7 @@ len_arr *find_all_str(len_arr *buffer)
 }
 
 
-FILE *open_file(char *text)
+FILE *open_file(char *text, char *mode)
 {
     char file_name[MAX_SIZE_FILE] = {};
     if (text[0]=='_')
@@ -147,14 +147,22 @@ FILE *open_file(char *text)
     else
     {
         printf("Некоректный ввод");
-        return open_file();
+        char *text_default = "_";
+        return open_file(text_default, mode);
     }
-    FILE *stream_read = fopen(file_name, "r");
+    if ((mode[0] != 'w') and (mode[0] != 'r'))
+    {
+        printf("некоректный mode" );
+        return open_file(text);
+    }
+
+    FILE *stream_read = fopen(file_name, mode);
 
     if (stream_read == NULL)
     {
         printf("Некоректный ввод");
-        return open_file();
+        char *text_default = "_";
+        return open_file(text_default, mode);
     }
     return stream_read;
 }

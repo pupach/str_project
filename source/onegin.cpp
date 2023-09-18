@@ -35,7 +35,15 @@ int main()
 
     printf("\nsort_bub_arr_ptr end\n");
 
+    for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
+    {
+        len_arr *may = ((len_arr *)(sort_bub_arr_ptr->arr) + i);
+        LOG("sort_bubble number %d, str %s\n", i, (char *)(may->arr));
+    }
+
     write_in_file(sort_bub_arr_ptr);
+
     printf("\nsort_bub_arr_ptr end\n");
+
 
 }

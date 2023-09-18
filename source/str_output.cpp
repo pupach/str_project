@@ -1,5 +1,6 @@
 #include "str_output.h"
 #include "str_input.h"
+#include "str_func.h"
 
 int write_in_file(len_arr * arr_to_write, char *filename)
 {
@@ -9,15 +10,18 @@ int write_in_file(len_arr * arr_to_write, char *filename)
 
     for(int i = 0; i < arr_to_write->size_arr; i++)
     {
-        char * str = (char *) arr->arr;
+        char * str = (char *) (arr + i)->arr;
 
-        char symb = str[arr->size_arr - 1];
-        str[arr->size_arr - 1] = '\0';
+        char symb = str[(arr + i)->size_arr - 1];
+        str[(arr + i)->size_arr - 1] = '\0';
+
+        LOG("string %s\n", str);
 
         fputs(str, stream_to_write);
 
-        str[arr->size_arr - 1] = symb;
+        str[(arr + i)->size_arr - 1] = symb;
 
     }
+    fclose(stream_to_write);
     return 1;
 }
