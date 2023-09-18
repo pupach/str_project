@@ -20,13 +20,13 @@ $(DIR_O)/str_input.o: $(DIR_SOUR)/str_input.cpp $(DIR_SOUR)/str_input.h
 $(DIR_O)/func_sort.o: $(DIR_SOUR)/func_sort.cpp $(DIR_SOUR)/func_sort.h $(DIR_SOUR)/str_input.h
 	$(CC) $(CFLAGS) $< -o $@
 
-$(DIR_O)/str_output.o: $(DIR_SOUR)/str_output.cpp $(DIR_SOUR)/func_sort.h $(DIR_SOUR)/str_input.h
+$(DIR_O)/str_output.o: $(DIR_SOUR)/str_output.cpp $(DIR_SOUR)/func_sort.h $(DIR_SOUR)/str_input.h $(DIR_SOUR)/str_output.h
 	$(CC) $(CFLAGS) $< -o $@
 
 $(DIR_O)/len_array.o: $(DIR_SOUR)/len_array.cpp $(DIR_SOUR)/func_sort.h $(DIR_SOUR)/str_input.h
 	$(CC) $(CFLAGS) $< -o $@
 
-$(DIR_O)/algoritm_sort.o: $(DIR_SOUR)/algoritm_sort.cpp $(DIR_SOUR)/func_sort.h $(DIR_SOUR)/str_input.h
+$(DIR_O)/algoritm_sort.o: $(DIR_SOUR)/algoritm_sort.cpp $(DIR_SOUR)/func_sort.h $(DIR_SOUR)/algoritm_sort.h
 	$(CC) $(CFLAGS) $< -o $@
 
 

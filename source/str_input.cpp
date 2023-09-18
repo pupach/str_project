@@ -17,7 +17,7 @@ void *increase_size_array(void *ptr_arr, size_t new_size)
     LOG("ptr_arr %s", *(((char **) ptr_arr) + 1));
 
     void *ptr_new = (void *)realloc(ptr_arr, new_size * sizeof(len_arr *));
-
+                // todo check null
     LOG("ptr_new %s", *(((char *) ptr_new) + 1));
 
     return ptr_new;
@@ -33,7 +33,7 @@ len_arr *find_one_str(len_arr *buff, int *amount_characters)
     LOG("\nnot_anal_buff c, %c\n", *not_anal_buff);
     LOG("\nnot_anal_buff n, %d\n", *not_anal_buff);
 
-    char n = '\n';
+    char n = '\n';               // todo remove
     LOG("\nn %d\n", n);
 
     while(*(not_anal_buff + len_str) != n)
@@ -130,25 +130,25 @@ FILE *open_file(char *text, char *mode)
     char file_name[MAX_SIZE_FILE] = {};
     if (text[0]=='_')
     {
-        printf("введите имя файла, где лежит текст евгения онегина");
+        printf("введите имя файла, где лежит текст евгения онегина\n");
         char shablon_format_str_fscanf[] = "%s";
         char MAX_SIZE_NAME_FILE[10] = {};
 
         itoa(MAX_SIZE_FILE, ((char *)(MAX_SIZE_NAME_FILE)), 10);
 
         char *format_str_fscanf = Myinsert_str_to_str((char *)shablon_format_str_fscanf, (char *)MAX_SIZE_NAME_FILE, 2);
-        LOG("%s", format_str_fscanf);
+
         int res = fscanf(stdin, "%s", file_name);
     }
     else if(strlen(text) < MAX_SIZE_FILE)
     {
-        strcpy(file_name, text);
+        strcpy(file_name, text);//TODO исправить
     }
     else
     {
         printf("Некоректный ввод");
         char *text_default = "_";
-        return open_file(text_default, mode);
+        return open_file(text_default, mode); // TODO While
     }
     if ((mode[0] != 'w') and (mode[0] != 'r'))
     {
@@ -174,10 +174,10 @@ len_arr *read_from_file_to_buff(FILE *stream_read)
     int size_buff = 0;
 
     char *buffer = (char *) calloc((size_t)(info.st_size), sizeof(char));
-
+                         // todo check null
     size_t res = fread((void *)buffer, sizeof(char), info.st_size, stream_read);
     size_buff = res;
-
+                          // todo \0
     fclose(stream_read);
 
     LOG("res %d\n", res);

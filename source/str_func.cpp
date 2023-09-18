@@ -173,7 +173,7 @@ char *Myinsert_str_to_str(const char *str1, const char *str2, size_t index_of_in
 
 bool is_letter_rus(char characters)
 {
-    if (((characters >= 'à') and (characters <= 'ÿ')) or ((characters >= 'À') and (characters <= 'ß')))
+    if (((characters >= 'a') and (characters <= 'z')) or ((characters >= 'A') and (characters <= 'Z')))
     {
         return true;
     }

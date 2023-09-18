@@ -25,6 +25,8 @@ int main()
     LOG("\n main\n %s\n main\n", buff->arr);
     printf("main %p\n",  (buff->arr) );
 
+    fclose(str_in);
+
     len_arr *ptr_all_str = find_all_str(buff);
     for (int i = 0; i < (ptr_all_str->size_arr); i++)
     {
@@ -41,9 +43,8 @@ int main()
         LOG("sort_bubble number %d, str %s\n", i, (char *)(may->arr));
     }
 
-    write_in_file(sort_bub_arr_ptr);
+    write_in_file(sort_bub_arr_ptr, "res.txt");
 
-    printf("\nsort_bub_arr_ptr end\n");
 
 
 }

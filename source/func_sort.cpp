@@ -2,7 +2,7 @@
 #include "func_sort.h"
 #include "str_func.h"
 
-int compare_str_len_arr(len_arr * str1, len_arr * str2)
+int compare_str_len_arr(len_arr * str1, len_arr * str2) //TODO через typedef
 {
     assert(str1 != nullptr);
     assert(str2 != nullptr);
