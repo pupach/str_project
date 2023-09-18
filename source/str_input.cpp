@@ -15,7 +15,7 @@ void *increase_size_array(void *ptr_arr, size_t new_size)
     LOG("new_size, %d", new_size);
     LOG("ptr_arr %s", *(((char **) ptr_arr) + 1));
 
-    void *ptr_new = (void *)realloc(ptr_arr, new_size * sizeof(char *));
+    void *ptr_new = (void *)realloc(ptr_arr, new_size * sizeof(len_arr *));
 
     LOG("ptr_new %s", *(((char *) ptr_new) + 1));
 

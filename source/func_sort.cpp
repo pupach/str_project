@@ -56,7 +56,7 @@ len_arr *sort_bubble(len_arr *arr_ptr, int (*f_sort) (len_arr *, len_arr *))
 
     len_arr *arr_to_sort = (len_arr *)calloc(arr_ptr->size_arr, sizeof(len_arr *));
 
-    memcpy(arr_to_sort, (len_arr *)(arr_ptr->arr), sizeof(len_arr *)*(arr_ptr->size_arr)*2);// why 2 ???????
+    memcpy(arr_to_sort, (len_arr *)(arr_ptr->arr), sizeof(len_arr *)*(arr_ptr->size_arr));// why 2 ???????
 
 
     for (int i = 0; i < ( arr_ptr->size_arr); i++)
