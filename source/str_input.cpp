@@ -44,7 +44,7 @@ len_arr find_one_str(len_arr *buff, int *amount_characters)
     *(not_anal_buff + len_str) = '\0';
     len_str += 1;
 
-    LOG("\nnot_anal_buff s, %s\n", not_anal_buff);
+    LOG("\n     not_anal_buff s, %s\n", not_anal_buff);
     LOG("len_str, %d\n", len_str);
 
     *amount_characters += len_str;
