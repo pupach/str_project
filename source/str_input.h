@@ -9,6 +9,9 @@
 #include <assert.h>
 #include <sys\stat.h>
 
+#include "len_array.h"
+
+
 
 
 const int MAX_SIZE = 2;
@@ -19,15 +22,6 @@ extern int MAX_SIZE_STR;
 
 extern FILE *stream_out;
 
-struct len_arr
-{
-
-    int size_arr = -1;
-    void *arr;
-
-
-
-};
 
 
 enum CODE_ERRORS
@@ -45,7 +39,7 @@ const size_t EXTRA_SIZE = 1000;
 
 void **increase_size_array(void **ptr_arr, size_t new_size);
 
-len_arr find_one_str(len_arr *buff, int *amount_characters);
+len_arr *find_one_str(len_arr *buff, int *amount_characters);
 
 CODE_ERRORS free_all_dinamic_ptr(char *text[], const int size_arr);
 

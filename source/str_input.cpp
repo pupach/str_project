@@ -1,6 +1,7 @@
 #include "str_input.h"
 #include "str_func.h"
 
+
 FILE *stream_out = stdin;
 
 int MAX_SIZE_STR = 100;
@@ -22,7 +23,7 @@ void *increase_size_array(void *ptr_arr, size_t new_size)
     return ptr_new;
 }
 
-len_arr find_one_str(len_arr *buff, int *amount_characters)
+len_arr *find_one_str(len_arr *buff, int *amount_characters)
 {
     int len_str = 0;
     char *not_anal_buff = (char *)(buff->arr + *amount_characters);
@@ -51,11 +52,11 @@ len_arr find_one_str(len_arr *buff, int *amount_characters)
 
     if (len_str != 1)
     {
-        len_arr str_struct;
+/*        len_arr str_struct;
         str_struct.arr = not_anal_buff;
-        str_struct.size_arr = len_str;
+        str_struct.size_arr = len_str;*/
 
-        return str_struct;
+        return gen_struct_len_arr((void *)not_anal_buff, len_str);
 
     }
     else
@@ -104,24 +105,23 @@ len_arr *find_all_str(len_arr *buffer)
         LOG("str %p\n",  (buffer->arr) );
         LOG("str %s\n",  (buffer->arr) );
 
-        len_arr s = find_one_str(buffer, &amount_characters);
+        len_arr *s = find_one_str(buffer, &amount_characters);
 
         if (size_arr == counter)
         {
             size_arr += EXTRA_SIZE;
             arr_str = (len_arr *)increase_size_array((void *)arr_str, size_arr);
         }
-        (arr_str + counter)->arr = s.arr;
-        (arr_str + counter)->size_arr = s.size_arr;
-
+        *(arr_str + counter) = *s;
         counter++;
+
     }while(amount_characters < buffer->size_arr);
 
-    len_arr *all_ptr_str = (len_arr *)calloc(sizeof(struct len_arr), 1);
+/*    len_arr *all_ptr_str = (len_arr *)calloc(sizeof(struct len_arr), 1);
     all_ptr_str->size_arr = counter;
-    all_ptr_str->arr = (void *)arr_str;
+    all_ptr_str->arr = (void *)arr_str; */
 
-    return all_ptr_str;
+    return gen_struct_len_arr((void *)arr_str, counter);
 }
 
 
@@ -174,11 +174,11 @@ len_arr *read_from_file_to_buff(FILE *stream_read)
 
     LOG("res %d\n", res);
 
-    len_arr *buff = (len_arr *)calloc(sizeof(len_arr), 1);
+/*    len_arr *buff = (len_arr *)calloc(sizeof(len_arr), 1);
     buff->arr =  (void *)buffer;
-    buff->size_arr = res;
+    buff->size_arr = res;*/
 
-    return buff;
+    return gen_struct_len_arr((void *)buffer, res);
 
 }
 

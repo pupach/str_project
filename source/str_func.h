@@ -8,12 +8,12 @@
 #include<stdlib.h>
 #include <string.h>
 #include <assert.h>
-
+const int DEBUG_MODE = 0;
 
 #define LOG(args...)                                                            \
     do                                                                                      \
     {                                                                                       \
-        if (1 > 0)                                                                 \
+        if (DEBUG_MODE > 0)                                                                 \
         {                                                                                   \
             fprintf(stdout, args);                                                      \
         }                                                                                   \

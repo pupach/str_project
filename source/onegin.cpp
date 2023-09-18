@@ -6,11 +6,12 @@
 #include <assert.h>
 #include <sys\stat.h>
 
-const int DEBUG_MODE = 1;
-
 #include "str_input.h"
+#include "str_output.h"
 #include "str_func.h"
 #include "func_sort.h"
+#include "algoritm_sort.h"
+#include "len_array.h"
 
 
 int main()
@@ -22,7 +23,7 @@ int main()
     len_arr *buff = read_from_file_to_buff(str_in);
 
     LOG("\n main\n %s\n main\n", buff->arr);
-    LOG("main %p\n",  (buff->arr) );
+    printf("main %p\n",  (buff->arr) );
 
     len_arr *ptr_all_str = find_all_str(buff);
     for (int i = 0; i < (ptr_all_str->size_arr); i++)
@@ -32,8 +33,9 @@ int main()
     }
     len_arr *sort_bub_arr_ptr = sort_bubble(ptr_all_str, &compare_str_len_arr);
 
-    for (int i = 0; i < (sort_bub_arr_ptr->size_arr); i++)
-    {
-        LOG("number %d, str %s\n", i, (*(((char **)sort_bub_arr_ptr->arr + i)) ));
-    }
+    printf("\nsort_bub_arr_ptr end\n");
+
+    write_in_file(sort_bub_arr_ptr);
+    printf("\nsort_bub_arr_ptr end\n");
+
 }
