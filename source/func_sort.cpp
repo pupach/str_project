@@ -2,7 +2,7 @@
 #include "func_sort.h"
 #include "str_func.h"
 
-int compare_str_len_arr(len_arr * str1, len_arr * str2) //TODO через typedef
+int compare_str_len_arr(len_arr * str1, len_arr * str2)
 {
     assert(str1 != nullptr);
     assert(str2 != nullptr);
@@ -28,23 +28,17 @@ int compare_str_len_arr(len_arr * str1, len_arr * str2) //TODO через typedef
     char *str_1 = (char *)(str1->arr);
     char *str_2 = (char *)(str2->arr);
 
-//    LOG("compare_str1 %s\n", str_1);
-//    LOG("compare_str2 %s\n", str_2);
-
     while((index_1 != str1->size_arr) and (index_2 != str2->size_arr)
             and res_comp == 0)
     {
 //        LOG("while begin");
-        if (!is_letter_rus(*(str_1 + index_1)))
+        while(!is_letter_rus(*(str_1 + index_1)))
         {
             index_1 += delta_index;
-            continue;
         }
-
-        if (!is_letter_rus(*(str_2 + index_2)))
+        while(!is_letter_rus(*(str_2 + index_2)))
         {
             index_2 += delta_index;
-            continue;
         }
 
         if (*(str_1 + index_1) > *(str_2 + index_2)) res_comp = 1;

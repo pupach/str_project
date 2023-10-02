@@ -10,7 +10,7 @@ int write_in_file(len_arr * arr_to_write, char *filename)
 
     len_arr *arr = (len_arr *)arr_to_write->arr;
 
-    for(int i = 2; i < arr_to_write->size_arr; i++)
+    for(int i = 0; i < arr_to_write->size_arr; i++)
     {
         printf("%d %d", i, arr_to_write->size_arr);
         char * str = (char *) (arr + i)->arr;
@@ -22,6 +22,7 @@ int write_in_file(len_arr * arr_to_write, char *filename)
 
         char s = fputs(str, stream_to_write);
         printf("%c\n", s);
+
         char *enter = "\n";
         fputs(enter, stream_to_write);
 

@@ -17,7 +17,8 @@ void *increase_size_array(void *ptr_arr, size_t new_size)
     LOG("ptr_arr %s", *(((char **) ptr_arr) + 1));
 
     void *ptr_new = (void *)realloc(ptr_arr, new_size * sizeof(len_arr *));
-                // todo check null
+    assert(ptr_new != nullptr);
+
     LOG("ptr_new %s", *(((char *) ptr_new) + 1));
 
     return ptr_new;
@@ -33,13 +34,10 @@ len_arr *find_one_str(len_arr *buff, int *amount_characters)
     LOG("\nnot_anal_buff c, %c\n", *not_anal_buff);
     LOG("\nnot_anal_buff n, %d\n", *not_anal_buff);
 
-    char n = '\n';               // todo remove
-    LOG("\nn %d\n", n);
-
-    while(*(not_anal_buff + len_str) != n)
+    while(*(not_anal_buff + len_str) != '\n')
     {
-        if (*(amount_characters) + len_str == buff->size_arr) break;
         len_str += 1;
+        if (*amount_characters + len_str == buff->size_arr) break;   // todo 1 earlier
     }
 
     *(not_anal_buff + len_str) = '\0';
@@ -52,12 +50,7 @@ len_arr *find_one_str(len_arr *buff, int *amount_characters)
 
     if (len_str != 1)
     {
-/*        len_arr str_struct;
-        str_struct.arr = not_anal_buff;
-        str_struct.size_arr = len_str;*/
-
         return gen_struct_len_arr((void *)not_anal_buff, len_str);
-
     }
     else
     {
@@ -97,7 +90,7 @@ len_arr *find_all_str(len_arr *buffer)
     bool flag = true;
     int counter = 0;
     len_arr *arr_str = (len_arr *)calloc(EXTRA_SIZE, sizeof(len_arr));
-    size_t size_arr = EXTRA_SIZE;
+    const size_t FACTOR_SIZE = 2;
     int amount_characters = 0;
 
     do
@@ -109,7 +102,7 @@ len_arr *find_all_str(len_arr *buffer)
 
         if (size_arr == counter)
         {
-            size_arr += EXTRA_SIZE;
+            size_arr = size_arr * FACTOR_SIZE;
             arr_str = (len_arr *)increase_size_array((void *)arr_str, size_arr);
         }
         *(arr_str + counter) = *s;
@@ -117,55 +110,50 @@ len_arr *find_all_str(len_arr *buffer)
 
     }while(amount_characters < buffer->size_arr);
 
-/*    len_arr *all_ptr_str = (len_arr *)calloc(sizeof(struct len_arr), 1);
-    all_ptr_str->size_arr = counter;
-    all_ptr_str->arr = (void *)arr_str; */
-
     return gen_struct_len_arr((void *)arr_str, counter);
 }
 
-
-FILE *open_file(char *text, char *mode)
+FILE *open_file(const char *text_const, char *mode)
 {
+    FILE *stream_read = NULL;
+
+    const size_t size_mode = 10;
+    char new_mode[size_mode] = {};
+    const char DEFAULT_READ_MODE = 'r';
     char file_name[MAX_SIZE_FILE] = {};
-    if (text[0]=='_')
+
+    if(!(strlen(text_const) < MAX_SIZE_FILE))
     {
-        printf("введите имя файла, где лежит текст евгения онегина\n");
-        char shablon_format_str_fscanf[] = "%s";
-        char MAX_SIZE_NAME_FILE[10] = {};
-
-        itoa(MAX_SIZE_FILE, ((char *)(MAX_SIZE_NAME_FILE)), 10);
-
-        char *format_str_fscanf = Myinsert_str_to_str((char *)shablon_format_str_fscanf, (char *)MAX_SIZE_NAME_FILE, 2);
-
-        int res = fscanf(stdin, "%s", file_name);
+            file_name[0] = POISON_VAL_FOR_CHAR;
     }
-    else if(strlen(text) < MAX_SIZE_FILE)
-    {
-        strcpy(file_name, text);//TODO исправить
-    }
+
     else
     {
-        printf("Некоректный ввод");
-        char *text_default = "_";
-        return open_file(text_default, mode); // TODO While
-    }
-    if ((mode[0] != 'w') and (mode[0] != 'r'))
-    {
-        printf("некоректный mode" );
-        return open_file(text);
+        strcpy(file_name, text_const);
     }
 
-    FILE *stream_read = fopen(file_name, mode);
 
-    if (stream_read == NULL)
-    {
-        printf("Некоректный ввод");
-        char *text_default = "_";
-        return open_file(text_default, mode);
-    }
+    do{
+        if (file_name[0] == POISON_VAL_FOR_CHAR)
+        {
+            int res = fscanf(stdin, "%.*s", MAX_SIZE_FILE, file_name);
+        }
+        if ((mode[0] != 'w') and (mode[0] != 'r'))
+        {
+
+            new_mode[0] = DEFAULT_READ_MODE;
+        }
+        else
+        {
+            stream_read = fopen(file_name, mode);
+            file_name[0] = POISON_VAL_FOR_CHAR;
+        }
+
+    }while(stream_read == NULL);
+
     return stream_read;
 }
+
 
 len_arr *read_from_file_to_buff(FILE *stream_read)
 {
@@ -173,25 +161,21 @@ len_arr *read_from_file_to_buff(FILE *stream_read)
     fstat(fileno (stream_read), &info);
     int size_buff = 0;
 
-    char *buffer = (char *) calloc((size_t)(info.st_size), sizeof(char));
-                         // todo check null
+    char *buffer = (char *) calloc((size_t)(info.st_size) + 1, sizeof(char));
+    if (buffer == nullptr)
+    {
+        printf("too big file");
+        exit(1);
+    }
     size_t res = fread((void *)buffer, sizeof(char), info.st_size, stream_read);
+
     size_buff = res;
-                          // todo \0
+    buffer[size_buff] = '\0';
+
     fclose(stream_read);
 
     LOG("res %d\n", res);
 
-/*    len_arr *buff = (len_arr *)calloc(sizeof(len_arr), 1);
-    buff->arr =  (void *)buffer;
-    buff->size_arr = res;*/
-
     return gen_struct_len_arr((void *)buffer, res);
 
 }
-
-int gen_arr_ptr_on_beg_str(char *buffer)
-{
-
-}
-

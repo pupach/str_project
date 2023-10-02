@@ -16,8 +16,9 @@
 
 int main()
 {
+    /*
     char *text = {};
-    text = (char *)calloc(MAX_SIZE, sizeof(char *));
+    text = (char *)calloc(MAX_SIZE, sizeof(char *));  */
     FILE *str_in = open_file("d.txt");
 
     len_arr *buff = read_from_file_to_buff(str_in);

@@ -17,15 +17,13 @@ len_arr *sort_bubble(len_arr *arr_ptr, int (*f_sort) (len_arr *, len_arr *))
         LOG("arr_ptr number %d, str %s\n", i, (char *)(may->arr));// из этого можно увидеть и проверить корректность входящих значений
     }
 
-    memcpy(arr_to_sort, (len_arr *)(arr_ptr->arr), sizeof(len_arr *)*(arr_ptr->size_arr)*2);// why 2 ???????
+    memcpy(arr_to_sort, (len_arr *)(arr_ptr->arr), sizeof(len_arr *)*(arr_ptr->size_arr));
 
     for (int i = 0; i < (arr_ptr->size_arr); i++)
     {
         len_arr *may = ((len_arr *)(arr_to_sort) + i);
-        LOG("arr_to_sort number %d, str %s\n", i, (char *)(may->arr));// при анологичной печати в этом месте, при копирование байт sizeof(len_arr *)*(arr_ptr->size_arr)
-                                                            // копируется лишь половина строк, что и является загадкой
+        LOG("arr_to_sort number %d, str %s\n", i, (char *)(may->arr));
     }
-    //ошибка ввозникает при любом запуске этой функции с корректными значениями в первых двух входных аргументах.
 
     printf("\n%d\n", sizeof(len_arr *));
 
@@ -39,7 +37,6 @@ len_arr *sort_bubble(len_arr *arr_ptr, int (*f_sort) (len_arr *, len_arr *))
 
     do
     {
-//        LOG("\nwhile_begin\n");
         flag_is_sorted = true;
 
         for(size_t i = 0; i < (arr_ptr->size_arr - 1); i++)
@@ -59,7 +56,6 @@ len_arr *sort_bubble(len_arr *arr_ptr, int (*f_sort) (len_arr *, len_arr *))
                 flag_is_sorted = false;
             }
         }
-//        LOG("\nfor end\n");
     }while(!flag_is_sorted);
     LOG("\nwhile_end\n");
 
