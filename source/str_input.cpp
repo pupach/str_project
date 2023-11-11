@@ -1,61 +1,60 @@
 #include "str_input.h"
-#include "str_func.h"
+#include "../../my_lib/str_func.h"
 
 
 FILE *stream_out = stdin;
 
 int MAX_SIZE_STR = 100;
 
-
+// TODO: add type name in func name
 void *increase_size_array(void *ptr_arr, size_t new_size)
 {
     if (ptr_arr == nullptr)
     {
         return nullptr;
     }
-    LOG("new_size, %d", new_size);
-    LOG("ptr_arr %s", *(((char **) ptr_arr) + 1));
+    LOG(1, stderr, "new_size, %d", new_size);
+    LOG(1, stderr, "ptr_arr %s", *(((char **) ptr_arr) + 1));
 
     void *ptr_new = (void *)realloc(ptr_arr, new_size * sizeof(len_arr *));
+    // TODO: replace assert with something better
     assert(ptr_new != nullptr);
 
-    LOG("ptr_new %s", *(((char *) ptr_new) + 1));
+    LOG(1, stderr, "ptr_new %s", *(((char *) ptr_new) + 1));
 
     return ptr_new;
 }
 
+// TODO: look at strtok
 len_arr *find_one_str(len_arr *buff, int *amount_characters)
 {
     int len_str = 0;
     char *not_anal_buff = (char *)(buff->arr + *amount_characters);
-
-    LOG("\namount_characters, %d\n", *amount_characters);
-
-    LOG("\nnot_anal_buff c, %c\n", *not_anal_buff);
-    LOG("\nnot_anal_buff n, %d\n", *not_anal_buff);
-
-    while(*(not_anal_buff + len_str) != '\n')
+    do
     {
+        not_anal_buff = (char *)(buff->arr + *amount_characters);
+        len_str = 0;
+        LOG(1, stderr, "\namount_characters, %d\n", *amount_characters);
+
+        LOG(1, stderr, "\nnot_anal_buff c, %c\n", *not_anal_buff);
+        LOG(1, stderr, "\nnot_anal_buff n, %d\n", *not_anal_buff);
+
+        while(*(not_anal_buff + len_str) != '\n')
+        {
+            len_str += 1;
+            if (*amount_characters + len_str == buff->size_arr) break;
+        }
+
+        *(not_anal_buff + len_str) = '\0';
         len_str += 1;
-        if (*amount_characters + len_str == buff->size_arr) break;   // todo 1 earlier
-    }
 
-    *(not_anal_buff + len_str) = '\0';
-    len_str += 1;
+        LOG(1, stderr, "\n     not_anal_buff s, %s\n", not_anal_buff);
+        LOG(1, stderr, "len_str, %d\n", len_str);
 
-    LOG("\n     not_anal_buff s, %s\n", not_anal_buff);
-    LOG("len_str, %d\n", len_str);
+        *amount_characters += len_str;
+    while(len_str == 1)
 
-    *amount_characters += len_str;
-
-    if (len_str != 1)
-    {
-        return gen_struct_len_arr((void *)not_anal_buff, len_str);
-    }
-    else
-    {
-        return find_one_str(buff, amount_characters);
-    }
+    return gen_struct_len_arr((void *)not_anal_buff, len_str);
 }
 
 CODE_ERRORS free_all_dinamic_ptr(char *text[], const int size_arr)
@@ -77,9 +76,9 @@ CODE_ERRORS print_str(char **text, const int size_arr)
     {
         if (text[i] != nullptr)
         {
-            LOG("%p\n",   (text+i));
+            LOG(1, stderr, "%p\n",   (text+i));
             char *s = *(text+i);
-            LOG("str %d\n",   i);
+            LOG(1, stderr, "str %d\n",   i);
         }
     }
 }
@@ -92,11 +91,11 @@ len_arr *find_all_str(len_arr *buffer)
     len_arr *arr_str = (len_arr *)calloc(EXTRA_SIZE, sizeof(len_arr));
     const size_t FACTOR_SIZE = 2;
     int amount_characters = 0;
+    int size_arr = EXTRA_SIZE;
 
     do
     {
-        LOG("str %p\n",  (buffer->arr) );
-        LOG("str %s\n",  (buffer->arr) );
+        LOG(1, stderr, "str %s\n",  (buffer->arr) );
 
         len_arr *s = find_one_str(buffer, &amount_characters);
 
@@ -124,7 +123,7 @@ FILE *open_file(const char *text_const, char *mode)
 
     if(!(strlen(text_const) < MAX_SIZE_FILE))
     {
-            file_name[0] = POISON_VAL_FOR_CHAR;
+        file_name[0] = POISON_VAL_FOR_CHAR;
     }
 
     else
@@ -132,10 +131,11 @@ FILE *open_file(const char *text_const, char *mode)
         strcpy(file_name, text_const);
     }
 
-
-    do{
+    do
+    {
         if (file_name[0] == POISON_VAL_FOR_CHAR)
         {
+            printf("некорректное имя файла введите новое\n");
             int res = fscanf(stdin, "%.*s", MAX_SIZE_FILE, file_name);
         }
         if ((mode[0] != 'w') and (mode[0] != 'r'))
@@ -174,7 +174,7 @@ len_arr *read_from_file_to_buff(FILE *stream_read)
 
     fclose(stream_read);
 
-    LOG("res %d\n", res);
+    LOG(1, stderr, "res %d\n", res);
 
     return gen_struct_len_arr((void *)buffer, res);
 

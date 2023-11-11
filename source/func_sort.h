@@ -1,7 +1,6 @@
 #ifndef FUNC_SORT
 #define FUNC_SORT
 
-#include <TXLib.h>
 #include <stdio.h>
 #include <math.h>
 #include<stdlib.h>
