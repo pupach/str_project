@@ -1,5 +1,6 @@
 #include "str_input.h"
 #include "../../my_lib/str_func.h"
+#include "../../my_lib/work_with_file.h"
 
 
 FILE *stream_out = stdin;
@@ -52,21 +53,28 @@ len_arr *find_one_str(len_arr *buff, int *amount_characters)
         LOG(1, stderr, "len_str, %d\n", len_str);
 
         *amount_characters += len_str;
-    while(len_str == 1)
+    }while(len_str == 1);
 
     return gen_struct_len_arr((void *)not_anal_buff, len_str);
 }
 
-CODE_ERRORS free_all_dinamic_ptr(char *text[], const int size_arr)
+CODE_ERRORS free_all_dinamic_ptr(len_arr *arr)
 {
-    for (int i = 0; i < size_arr; i++)
-    {
-        if (text[i] != nullptr)
-        {
-            free(text[i]);
-        }
-    }
+    LOG(1, stderr, "free_all_dinamic_ptr begin size %zu\n", arr->size_arr);
+
+    free(((len_arr *)arr->arr));
+    free(arr);
+
+    LOG(1, stderr, "free_all_dinamic_ptr end\n");
+
     return ALL_GOOD;
+}
+
+
+CODE_ERRORS free_mem_buf(len_arr *buff)
+{
+    free(buff->arr);
+    free(buff);
 }
 
 
@@ -111,49 +119,6 @@ len_arr *find_all_str(len_arr *buffer)
 
     return gen_struct_len_arr((void *)arr_str, counter);
 }
-
-FILE *open_file(const char *text_const, char *mode)
-{
-    FILE *stream_read = NULL;
-
-    const size_t size_mode = 10;
-    char new_mode[size_mode] = {};
-    const char DEFAULT_READ_MODE = 'r';
-    char file_name[MAX_SIZE_FILE] = {};
-
-    if(!(strlen(text_const) < MAX_SIZE_FILE))
-    {
-        file_name[0] = POISON_VAL_FOR_CHAR;
-    }
-
-    else
-    {
-        strcpy(file_name, text_const);
-    }
-
-    do
-    {
-        if (file_name[0] == POISON_VAL_FOR_CHAR)
-        {
-            printf("некорректное имя файла введите новое\n");
-            int res = fscanf(stdin, "%.*s", MAX_SIZE_FILE, file_name);
-        }
-        if ((mode[0] != 'w') and (mode[0] != 'r'))
-        {
-
-            new_mode[0] = DEFAULT_READ_MODE;
-        }
-        else
-        {
-            stream_read = fopen(file_name, mode);
-            file_name[0] = POISON_VAL_FOR_CHAR;
-        }
-
-    }while(stream_read == NULL);
-
-    return stream_read;
-}
-
 
 len_arr *read_from_file_to_buff(FILE *stream_read)
 {

@@ -13,17 +13,42 @@
 #include "../../my_lib/len_arr/len_array.h"
 #include "../onegin.h"
 
+CODE_ERRORS printf_onegin_txt(len_arr *onegin)
+{
+    LOG(1, stderr, "printf_onegin_txt begin\n");
+
+    for(int i = 0; i < onegin->size_arr; i++)
+    {
+        for(int j = 0; j < ((len_arr *)onegin->arr)[i].size_arr; j++)
+        {
+            fprintf(stderr, "%c", ((char *)(((len_arr *)onegin->arr)[i].arr))[j]);
+        }
+        fprintf(stderr, "\n");
+    }
+    LOG(1, stderr, "printf_onegin_txt end\n");
+}
+
 len_arr *cpy_onegin_len_arr(len_arr *for_cpy)//хз как адкватнее сделать функцию копирования
 {
     len_arr *for_write = (len_arr *)calloc(sizeof(len_arr), 1);
+    for_write->size_arr = for_cpy->size_arr;
 
-    for_write->arr = (void *)calloc(sizeof(len_arr), for_cpy->size_arr);
+    printf_onegin_txt(for_cpy);
+
+    for_write->arr = (len_arr *)calloc(sizeof(len_arr), for_cpy->size_arr);
     for(int i = 0; i < for_cpy->size_arr; i++)
     {
-        ((len_arr *)(for_write->arr))[i]->arr = (char *)calloc(sizeof(char *), ((len_arr *)(for_cpy->arr))[i]->size_arr);
-        memcpy(((len_arr *)(for_write->arr))[i]->arr, ((len_arr *)(for_cpy->arr))[i]->arr,
-                ((len_arr *)(for_cpy->arr))[i]->size_arr * sizeof(char *));
+        LOG(1, stderr, "size_arr    %d  ", ((len_arr *)(for_cpy->arr))[i].size_arr);
+        ((len_arr *)(for_write->arr))[i].arr = (char *)calloc(sizeof(char), ((len_arr *)(for_cpy->arr))[i].size_arr + 1);//откуда плюс 1
+
+        ((len_arr *)(for_write->arr))[i].arr = strndup((char *)(((len_arr *)(for_cpy->arr))[i]).arr,
+                (((len_arr *)(for_cpy->arr))[i].size_arr - 1)* sizeof(char));
+
+    #define DEF_COM_WITH_ARGS(com_gen, numb, ...)    \        ((len_arr *)(for_write->arr))[i].size_arr = (((len_arr *)(for_cpy->arr))[i]).size_arr;
+
+        LOG(1, stderr, "for_write->arr = %s\n", (((len_arr *)(for_write->arr))[i]).arr);
     }
+    printf_onegin_txt(for_write);
     return for_write;
 }
 
@@ -31,7 +56,7 @@ CODE_ERRORS free_cpy_onegin_struct(len_arr *for_free)
 {
     for(int i = 0; i < for_free->size_arr; i++)
     {
-        free(((len_arr *)(for_free->arr))[i]->arr);
+        free(((len_arr *)(for_free->arr))[i].arr);
     }
     free(for_free->arr);
     free(for_free);

@@ -27,6 +27,8 @@
 
 len_arr *cpy_onegin_len_arr(len_arr *for_cpy);
 
+CODE_ERRORS printf_onegin_txt(len_arr *onegin);
+
 CODE_ERRORS free_cpy_onegin_struct(len_arr *for_free);
 
 len_arr * split_file_on_str(FILE *stream_read, len_arr **buff_for_free);
